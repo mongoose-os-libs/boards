@@ -23,7 +23,7 @@ conds:
       libs:
         - origin: https://github.com/mongoose-os-libs/wifi
       config_schema:
-        - ["board.led1.pin", 13]
+        - ["board.led1.pin", 2]
         - ["board.btn1.pin", 0]
         - ["board.btn1.pull_up", true]
         - ["provision.btn.pin", 0]
