@@ -43,6 +43,20 @@ conds:
         - ["provision.btn.pin", 34]
         - ["provision.btn.pull_up", true]
 
+  # https://www.olimex.com/Products/IoT/ESP32/ESP32-POE/open-source-hardware
+  - when: build_vars.BOARD == "ESP32-POE"
+    apply:
+      libs:
+        - origin: https://github.com/mongoose-os-libs/ethernet
+      config_schema:
+        - ["eth.enable", true]
+        - ["eth.clk_mode", 3]  # GPIO17
+        - ["eth.phy_pwr_gpio", 12]
+        - ["board.btn1.pin", 34]  # BUT1
+        - ["board.btn1.pull_up", true]
+        - ["provision.btn.pin", 34]
+        - ["provision.btn.pull_up", true]
+
   - when: mos.platform == "esp8266"
     apply:
       libs:
