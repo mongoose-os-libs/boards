@@ -21,7 +21,7 @@ conds:
   - when: mos.platform == "esp32"
     apply:
       libs:
-        - origin: https://github.com/mongoose-os-libs/wifi
+        - location: https://github.com/mongoose-os-libs/wifi
       config_schema:
         - ["board.led1.pin", 13]
         - ["board.btn1.pin", 0]
@@ -33,7 +33,7 @@ conds:
   - when: build_vars.BOARD == "ESP32-EVB"
     apply:
       libs:
-        - origin: https://github.com/mongoose-os-libs/ethernet
+        - location: https://github.com/mongoose-os-libs/ethernet
       config_schema:
         - ["eth.enable", true]
         - ["board.led1.pin", 32]  # REL1
@@ -47,7 +47,7 @@ conds:
   - when: build_vars.BOARD == "ESP32-POE"
     apply:
       libs:
-        - origin: https://github.com/mongoose-os-libs/ethernet
+        - location: https://github.com/mongoose-os-libs/ethernet
       config_schema:
         - ["eth.enable", true]
         - ["eth.clk_mode", 3]  # GPIO17
@@ -60,7 +60,7 @@ conds:
   - when: mos.platform == "esp8266"
     apply:
       libs:
-        - origin: https://github.com/mongoose-os-libs/wifi
+        - location: https://github.com/mongoose-os-libs/wifi
       config_schema:
         - ["board.led1.pin", 2]
         - ["board.led1.active_high", false]
@@ -88,7 +88,7 @@ conds:
   - when: mos.platform == "cc3200"  # CC3200-LAUNCHXL
     apply:
       libs:
-        - origin: https://github.com/mongoose-os-libs/wifi
+        - location: https://github.com/mongoose-os-libs/wifi
       config_schema:
         - ["board.led1.pin", 64]    # D7 (red)
         - ["board.led2.pin", 1]     # D6 (yellow)
@@ -101,7 +101,7 @@ conds:
   - when: mos.platform == "cc3220"  # CC3220F-LAUNCHXL
     apply:
       libs:
-        - origin: https://github.com/mongoose-os-libs/wifi
+        - location: https://github.com/mongoose-os-libs/wifi
       config_schema:
         - ["board.led1.pin", 64]    # D7 (red)
         - ["board.led2.pin", 1]     # D6 (yellow)
@@ -114,7 +114,7 @@ conds:
   - when: mos.platform == "rs14100"
     apply:
       libs:
-        - origin: https://github.com/mongoose-os-libs/wifi
+        - location: https://github.com/mongoose-os-libs/wifi
       build_vars:
         FREERTOS_PORT: GCC/ARM_CM4F
         MGOS_ROOT_DEVTAB: >
@@ -150,8 +150,8 @@ conds:
   - when: build_vars.BOARD == "B-L475E-IOT01A"
     apply:
       libs:
-        - origin: https://github.com/mongoose-os-libs/freertos
-        - origin: https://github.com/mongoose-os-libs/wifi-ism43xxx
+        - location: https://github.com/mongoose-os-libs/freertos
+        - location: https://github.com/mongoose-os-libs/wifi-ism43xxx
       config_schema:
         - ["board.led1.pin", 0x05]     # PA5 (LD1, green)
         - ["board.led2.pin", 0x1e]     # PB14 (LD2, green)
@@ -210,8 +210,8 @@ conds:
   - when: build_vars.BOARD == "DISCO-F746NG"
     apply:
       libs:
-        - origin: https://github.com/mongoose-os-libs/ethernet
-        - origin: https://github.com/mongoose-os-libs/freertos
+        - location: https://github.com/mongoose-os-libs/ethernet
+        - location: https://github.com/mongoose-os-libs/freertos
       config_schema:
         - ["board.led1.pin", 0x81]     # PI1 (green)
         - ["board.btn1.pin", 0x8b]     # PI11
@@ -267,8 +267,8 @@ conds:
   - when: build_vars.BOARD == "NUCLEO-F746ZG"
     apply:
       libs:
-        - origin: https://github.com/mongoose-os-libs/ethernet
-        - origin: https://github.com/mongoose-os-libs/freertos
+        - location: https://github.com/mongoose-os-libs/ethernet
+        - location: https://github.com/mongoose-os-libs/freertos
       config_schema:
         - ["board.led1.pin", 0x1e]     # PB14 (LD3, red)
         - ["board.led2.pin", 0x17]     # PB7 (LD2, blue)
@@ -310,8 +310,8 @@ conds:
   - when: build_vars.BOARD == "Electron"
     apply:
       libs:
-        - origin: https://github.com/mongoose-os-libs/freertos
-        - origin: https://github.com/mongoose-os-libs/pppos
+        - location: https://github.com/mongoose-os-libs/freertos
+        - location: https://github.com/mongoose-os-libs/pppos
       config_schema:
         - ["board.led1.pin", 0x01]     # PA1 (RGB, red)
         - ["board.led1.active_high", false]
