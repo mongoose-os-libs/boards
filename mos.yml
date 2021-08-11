@@ -56,6 +56,11 @@ conds:
         - ["board.btn1.pull_up", true]
         - ["provision.btn.pin", 34]
         - ["provision.btn.pull_up", true]
+        # There is no LED on this board, but we define GPIO13 for it.
+        # GPIO13 is pin 10 on the EXT2 connector. There's an easily accessible
+        # ground pad nearby (unpopulated C21).
+        - ["board.led1.pin", 13]
+        - ["provision.led.pin", 13]
 
   - when: mos.platform == "esp8266"
     apply:
