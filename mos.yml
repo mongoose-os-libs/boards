@@ -62,6 +62,30 @@ conds:
         - ["board.led1.pin", 13]
         - ["provision.led.pin", 13]
 
+  # https://github.com/LilyGO/T-Koala
+  - when: build_vars.BOARD == "T-Koala"
+    apply:
+      config_schema:
+        # There's no physical button on the board
+        - ["board.btn1.pin", 0]
+        - ["board.btn1.pull_up", true]
+        - ["provision.btn.pin", 0]
+        - ["provision.btn.pull_up", true]
+        # Green LED on GPIO5
+        - ["board.led1.pin", 5]
+        - ["provision.led.pin", 5]
+      # Board is based on WRover module with 4MB SPIRAM, enable it.
+      build_vars:
+        ESP_IDF_SDKCONFIG_OPTS: >
+          ${build_vars.ESP_IDF_SDKCONFIG_OPTS}
+          CONFIG_SPIRAM_SUPPORT=y
+          CONFIG_SPIRAM_IGNORE_NOTFOUND=y
+          CONFIG_SPIRAM_BOOT_INIT=y
+          CONFIG_SPIRAM_CACHE_WORKAROUND=y
+          CONFIG_SPI_MASTER_IN_IRAM=y
+          CONFIG_BT_ALLOCATION_FROM_SPIRAM_FIRST=y
+          CONFIG_WIFI_LWIP_ALLOCATION_FROM_SPIRAM_FIRST=y
+
   - when: mos.platform == "esp8266"
     apply:
       libs:
