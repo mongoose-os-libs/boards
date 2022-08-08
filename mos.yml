@@ -21,6 +21,7 @@ conds:
   - when: mos.platform == "esp32"
     apply:
       libs:
+        - location: https://github.com/mongoose-os-libs/bt-common
         - location: https://github.com/mongoose-os-libs/wifi
       config_schema:
         - ["board.led1.pin", 13]
@@ -28,6 +29,12 @@ conds:
         - ["board.btn1.pull_up", true]
         - ["provision.btn.pin", 0]
         - ["provision.btn.pull_up", true]
+
+  - when: mos.platform == "esp32c3"
+    apply:
+      libs:
+        - location: https://github.com/mongoose-os-libs/bt-common
+        - location: https://github.com/mongoose-os-libs/wifi
 
   # https://www.olimex.com/Products/IoT/ESP32/ESP32-EVB/open-source-hardware
   - when: build_vars.BOARD == "ESP32-EVB"
